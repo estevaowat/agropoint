@@ -1,13 +1,27 @@
-import { DataTypes, Model, Sequelize } from 'sequelize';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-export interface PositionAttributes {
-  id?: string;
+@Entity('positions')
+class Position {
+  @PrimaryGeneratedColumn('uuid')
+  id: number;
+
+  @Column()
   latitude: number;
-  longitude: number;
-}
 
-class Position extends Model {
-  init() {}
+  @Column()
+  longitude: number;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
 }
 
 export default Position;

@@ -11,6 +11,9 @@ class Position {
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
+    @Column()
+    path: string;
+
   @Column()
   latitude: number;
 

@@ -19,6 +19,11 @@ export default class CreatePositions1604965438674
             default: `uuid_generate_v4()`,
           },
           {
+            name: 'path',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
             name: 'latitude',
             type: 'numeric',
             isNullable: false,

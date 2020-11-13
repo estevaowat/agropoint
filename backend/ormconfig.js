@@ -5,12 +5,12 @@ const rootDir = process.env.NODE_ENV === "development" ? 'src' : 'build'
 module.exports = [
   {
     "name": "default",
-    "type": "postgres",
-    "host": "localhost",
-    "port": 5432,
-    "username": "postgres",
-    "password": "docker",
-    "database": "agropoint",
+    "type": process.env.DB_TYPE,
+    "host": process.env.DB_HOST,
+    "port": process.env.DB_PORT,
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASSWORD,
+    "database": process.env.DB_DATABASE,
     "entities": [
       join(__dirname, rootDir, 'app/models', '*.{ts,js}')
     ],

@@ -15,3 +15,5 @@ routes.get('/health', (req, res) => {
 routes.post('/', positionController.create);
 
 export default routes;
+
+

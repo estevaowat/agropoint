@@ -26,14 +26,13 @@ module.exports = {
       'ignorePackages',
       {
         js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
+        ts: 'never'
       },
     ],
   },
   settings: {
     'import/resolver': {
+      typescript: {},
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },

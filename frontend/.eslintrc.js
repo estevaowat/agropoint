@@ -22,6 +22,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier', 'import'],
   rules: {
+    'react/no-unused-prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'no-unused-vars': 'warn',
     'prettier/prettier': 'error',
     'no-use-before-define': 'off',

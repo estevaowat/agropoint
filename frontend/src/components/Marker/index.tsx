@@ -2,13 +2,21 @@ import React from 'react';
 
 import './styles.css';
 
-const Marker: React.FC = (props: any) => {
+interface MarkerProps {
+  lat: number;
+  lng: number;
+  name: string;
+  color: string;
+  id: string;
+}
+
+const Marker: React.FC<MarkerProps> = (props: MarkerProps) => {
   const { color, name, id } = props;
 
   return (
     <div
       key={id}
-      className="marker"
+      className="pin bounce"
       style={{ backgroundColor: color, cursor: 'pointer' }}
       title={name}
     />

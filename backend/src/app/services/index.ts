@@ -3,14 +3,36 @@ import { getManager } from 'typeorm';
 import fetch   from 'node-fetch';
 import Position from '../models/position';
 
-interface Request {
+interface SaveRequest {
   url: string;
 }
 
-class Services {
-  entityManager = getManager();
 
-  public async execute({ url }: Request) {
+
+class Services {
+  private entityManager = getManager();
+
+  public async findAllCsvImported() {
+    const paths = await this.entityManager.createQueryBuilder(Position, 'positions')
+      .select('path')
+      .distinct(true)
+      .getRawMany();
+
+    return paths;
+
+  }
+
+  public async findPositionsByUrl(url: string) {
+    console.log('url', url)
+    const positions = await this.entityManager.find(Position, {
+      path: url
+    })
+
+    console.log(positions);
+    return positions;
+  }
+
+  public async saveCsvIntoDatabase({ url }: SaveRequest) {
     const response = await fetch(url);
     const { body }  = response ;
     const positions: any[] = [];
@@ -31,7 +53,7 @@ class Services {
 
       await this.entityManager.save(positionsToSave);
 
-       res(positions);
+       res(positionsToSave);
      });
 
     })

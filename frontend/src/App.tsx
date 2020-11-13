@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Spin, Space, Button, Select, Input, Form } from 'antd';
 import { Store } from 'antd/lib/form/interface';
 import GoogleMapReact from 'google-map-react';
+import * as dotenv from 'dotenv';
 import Header from './components/Header';
 import Marker from './components/Marker';
 import api from './services/api';
 import './App.css';
+
+dotenv.config();
 
 interface IPosition {
   latitude: number;
@@ -147,7 +150,7 @@ const App: React.FC = () => {
         {!isLoading && (
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: 'AIzaSyC_pEJU06Mu0tnD1PIj_bJ9Z8BT1mUfaXc',
+              key: process.env.GOOGLE_MAP_API_KEY || '',
             }}
             defaultCenter={{ lat: -23.5085732, lng: -46.874006 }}
             zoom={11}

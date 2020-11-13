@@ -6,12 +6,14 @@ import 'reflect-metadata';
 
 import routes from './routes';
 
+const port = process.env.PORT || 3333;
+
 const app = express();
 app.use(cors())
 app.use(express.json());
 
 app.use(routes);
 
-app.listen(4000, () => {
-  console.log('listen in port 4000');
+app.listen(port, () => {
+  console.log(`listen in port ${port}`);
 });

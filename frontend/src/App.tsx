@@ -150,7 +150,7 @@ const App: React.FC = () => {
         {!isLoading && (
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: process.env.GOOGLE_MAP_API_KEY || '',
+              key: process.env.REACT_APP_GOOGLE_MAP_API_KEY || '',
             }}
             defaultCenter={{ lat: -23.5085732, lng: -46.874006 }}
             zoom={11}

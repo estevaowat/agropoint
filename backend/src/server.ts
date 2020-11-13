@@ -1,8 +1,7 @@
-import 'dotenv/config';
+import { } from 'dotenv/config';
 import express from 'express';
 import cors from 'cors'
 import './app/databases';
-
 import 'reflect-metadata';
 
 import routes from './routes';

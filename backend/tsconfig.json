@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es5",
+    "module": "umd",
+    "moduleResolution": "node",
     "outDir": "./build",
     "rootDir": "./src",
     "strict": true,

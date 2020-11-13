@@ -7,8 +7,6 @@ interface SaveRequest {
   url: string;
 }
 
-
-
 class Services {
   private entityManager = getManager();
 

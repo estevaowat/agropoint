@@ -21,12 +21,10 @@ class Services {
   }
 
   public async findPositionsByUrl(url: string) {
-    console.log('url', url)
     const positions = await this.entityManager.find(Position, {
       path: url
     })
 
-    console.log(positions);
     return positions;
   }
 

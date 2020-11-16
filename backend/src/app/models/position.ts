@@ -1,12 +1,18 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('positions')
 class Position {
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
-    @Column()
-    path: string;
+  @Column()
+  path: string;
 
   @Column()
   latitude: number;

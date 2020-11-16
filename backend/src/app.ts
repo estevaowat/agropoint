@@ -1,15 +1,30 @@
-
 import express from 'express';
-import cors from 'cors'
-import './app/databases';
+import cors from 'cors';
+import Connection from './app/databases';
 import 'reflect-metadata';
 import routes from './routes';
 
-const app = express();
-app.use(cors())
-app.use(express.json());
+class App {
+  public app = express();
 
-app.use(routes);
+  constructor() {
+    this.init();
+  }
 
+  private init() {
+    this.databases();
+    this.middlewares();
+  }
 
-export default app;
+  private databases() {
+    Connection.create();
+  }
+
+  private middlewares() {
+    this.app.use(cors());
+    this.app.use(express.json());
+    this.app.use(routes);
+  }
+}
+
+export default new App();
